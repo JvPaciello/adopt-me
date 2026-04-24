@@ -1,50 +1,77 @@
-// eslint-disable-next-line no-unused-vars
-import { motion } from "framer-motion";
+import { useEffect, useRef } from 'react';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+gsap.registerPlugin(ScrollTrigger);
 
 export default function ContactForm() {
-  return (
-    <section id="contato" className="contact">
-      <motion.h3
-        initial={{ opacity: 0, y: -20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
-        viewport={{ once: true }}
-      >
-        Entre em contato
-      </motion.h3>
+  const sectionRef = useRef(null);
+  const btnRef = useRef(null);
 
-      <motion.form
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        transition={{ delay: 0.2, duration: 0.6 }}
-        viewport={{ once: true }}
-      >
-        <motion.input
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      gsap.from('.contact h3', {
+        y: -20,
+        opacity: 0,
+        duration: 0.7,
+        ease: 'power3.out',
+        scrollTrigger: { trigger: '.contact h3', start: 'top 85%' },
+      });
+      gsap.from('.contact form > *', {
+        y: 20,
+        opacity: 0,
+        duration: 0.6,
+        stagger: 0.12,
+        ease: 'power2.out',
+        scrollTrigger: { trigger: '.contact form', start: 'top 85%' },
+      });
+    }, sectionRef);
+    return () => ctx.revert();
+  }, []);
+
+  const handleFocus = (e) => {
+    gsap.to(e.target, { scale: 1.02, duration: 0.25, ease: 'power2.out' });
+  };
+  const handleBlur = (e) => {
+    gsap.to(e.target, { scale: 1, duration: 0.25, ease: 'power2.out' });
+  };
+  const btnEnter = () => gsap.to(btnRef.current, { scale: 1.05, duration: 0.2 });
+  const btnLeave = () => gsap.to(btnRef.current, { scale: 1, duration: 0.2 });
+  const btnDown = () => gsap.to(btnRef.current, { scale: 0.95, duration: 0.1 });
+  const btnUp = () => gsap.to(btnRef.current, { scale: 1.05, duration: 0.15 });
+
+  return (
+    <section id="contato" className="contact" ref={sectionRef}>
+      <h3>Entre em contato</h3>
+      <form onSubmit={(e) => e.preventDefault()}>
+        <input
           type="text"
           placeholder="Nome completo"
-          whileFocus={{ scale: 1.02 }}
-          transition={{ duration: 0.2 }}
+          onFocus={handleFocus}
+          onBlur={handleBlur}
         />
-        <motion.input
+        <input
           type="email"
           placeholder="Seu e-mail"
-          whileFocus={{ scale: 1.02 }}
-          transition={{ duration: 0.2 }}
+          onFocus={handleFocus}
+          onBlur={handleBlur}
         />
-        <motion.textarea
+        <textarea
           placeholder="Mensagem"
-          whileFocus={{ scale: 1.02 }}
-          transition={{ duration: 0.2 }}
+          onFocus={handleFocus}
+          onBlur={handleBlur}
         />
-        <motion.button
+        <button
+          ref={btnRef}
           type="submit"
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-          transition={{ duration: 0.2 }}
+          onMouseEnter={btnEnter}
+          onMouseLeave={btnLeave}
+          onMouseDown={btnDown}
+          onMouseUp={btnUp}
         >
           Enviar mensagem
-        </motion.button>
-      </motion.form>
+        </button>
+      </form>
     </section>
   );
 }

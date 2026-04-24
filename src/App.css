@@ -1,117 +1,205 @@
+:root {
+  --primary: #e91e63;
+  --primary-dark: #c2185b;
+  --bg: #fafafa;
+  --bg-pink: #ffe4ec;
+  --bg-pink-soft: #fce4ec;
+  --text: #333;
+  --text-muted: #555;
+  --radius: 12px;
+  --shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+  --font: 'Poppins', sans-serif;
+}
 
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  font-family: var(--font);
+}
+
+html,
 body {
   margin: 0;
-  font-family: 'Segoe UI', sans-serif;
-  background-color: #fafafa;
-  color: #333;
+  padding: 0;
+  font-family: var(--font);
+  background-color: var(--bg);
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
+  font-weight: 400;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font);
+  font-weight: 700;
+  margin: 0;
+}
+
+p,
+a,
+button,
+input,
+textarea,
+label,
+span {
+  font-family: var(--font);
 }
 
 .container {
   margin: auto;
 }
 
-header {
+.header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   background: white;
   padding: 20px 40px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08);
+  position: sticky;
+  top: 0;
+  z-index: 100;
 }
 
-header h1 {
-  color: #e91e63;
+.header h1 {
+  color: var(--primary);
   font-size: 1.8rem;
+  font-weight: 800;
+  letter-spacing: -0.5px;
 }
 
-header nav a {
-  margin-left: 20px;
+.header nav a {
+  margin-left: 22px;
   text-decoration: none;
-  color: #555;
+  color: var(--text-muted);
   font-weight: 500;
+  font-size: 1rem;
+  position: relative;
+  transition: color 0.2s;
 }
 
-header nav a:hover {
-  color: #e91e63;
+.header nav a:hover {
+  color: var(--primary);
 }
 
 .hero {
-  background: #ffe4ec;
+  background: var(--bg-pink);
   text-align: center;
-  padding: 80px 20px;
+  padding: 100px 20px;
+  overflow: hidden;
 }
 
 .hero h2 {
-  font-size: 2.5rem;
-  margin-bottom: 10px;
+  font-size: 2.75rem;
+  font-weight: 800;
+  margin-bottom: 14px;
+  letter-spacing: -1px;
+}
+
+.hero p {
+  font-size: 1.15rem;
+  font-weight: 400;
+  color: var(--text-muted);
+  margin: 0 auto;
+  max-width: 600px;
 }
 
 .hero .cta {
-  margin-top: 20px;
+  margin-top: 28px;
   display: inline-block;
-  background: #e91e63;
+  background: var(--primary);
   color: white;
-  padding: 12px 30px;
+  padding: 14px 34px;
   border-radius: 30px;
   text-decoration: none;
-  font-weight: bold;
+  font-weight: 600;
+  font-size: 1rem;
+  box-shadow: 0 6px 18px rgba(233, 30, 99, 0.3);
+  cursor: pointer;
 }
 
 .gallery {
-  padding: 60px 20px;
+  padding: 80px 20px;
   text-align: center;
 }
 
 .gallery h3 {
   font-size: 2rem;
-  margin-bottom: 30px;
+  font-weight: 700;
+  margin-bottom: 40px;
+  letter-spacing: -0.5px;
 }
 
 .cards {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 20px;
+  gap: 24px;
 }
 
 .card {
   background: white;
-  border-radius: 12px;
-  box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
   overflow: hidden;
   width: 300px;
-  transition: transform 0.2s;
+  cursor: pointer;
 }
 
-.card:hover {
-  transform: translateY(-5px)!important;
-}
-
-.card img {
+.card-img-wrapper {
+  overflow: hidden;
   width: 100%;
-  height: 200px;
+  height: 220px;
+}
+
+.card img,
+.card .dog-img {
+  width: 100%;
+  height: 100%;
   object-fit: cover;
+  display: block;
 }
 
 .card h4 {
-  margin: 10px 0 0;
+  margin: 14px 0 4px;
+  font-size: 1.2rem;
+  font-weight: 600;
 }
 
 .card p {
-  margin: 5px 0 15px;
+  margin: 4px 0;
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  font-weight: 400;
+}
+
+.card p:last-child {
+  margin-bottom: 18px;
 }
 
 .steps {
   background: white;
-  padding: 60px 20px;
+  padding: 80px 20px;
   text-align: center;
+}
+
+.steps h3 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 40px;
+  letter-spacing: -0.5px;
 }
 
 .step-list {
   display: flex;
   flex-direction: column;
-  gap: 30px;
-  max-width: 800px;
+  gap: 24px;
+  max-width: 900px;
   margin: auto;
 }
 
@@ -122,16 +210,39 @@ header nav a:hover {
   }
 }
 
-.step-list div {
-  background: #fce4ec;
-  padding: 20px;
-  border-radius: 8px;
+.step-card {
+  background: var(--bg-pink-soft);
+  padding: 28px 22px;
+  border-radius: var(--radius);
+  flex: 1;
+}
+
+.step-card h4 {
+  font-size: 1.15rem;
+  font-weight: 600;
+  margin-bottom: 10px;
+  color: var(--primary);
+}
+
+.step-card p {
+  font-size: 0.95rem;
+  font-weight: 400;
+  color: var(--text-muted);
+  line-height: 1.5;
+  margin: 0;
 }
 
 .contact {
-  padding: 60px 20px;
-  background: #ffe4ec;
+  padding: 80px 20px;
+  background: var(--bg-pink);
   text-align: center;
+}
+
+.contact h3 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 30px;
+  letter-spacing: -0.5px;
 }
 
 .contact form {
@@ -139,46 +250,72 @@ header nav a:hover {
   margin: auto;
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  gap: 14px;
 }
 
 .contact input,
 .contact textarea {
-  padding: 12px;
-  border: 1px solid #ccc;
-  border-radius: 6px;
+  padding: 13px 16px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
   font-size: 1rem;
+  font-family: var(--font);
+  font-weight: 400;
+  background: white;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.contact input:focus,
+.contact textarea:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(233, 30, 99, 0.15);
+}
+
+.contact textarea {
+  min-height: 120px;
+  resize: vertical;
 }
 
 .contact button {
-  background: #e91e63;
+  background: var(--primary);
   color: white;
   border: none;
-  padding: 12px;
+  padding: 13px;
   font-size: 1rem;
+  font-weight: 600;
   border-radius: 30px;
   cursor: pointer;
+  font-family: var(--font);
 }
 
 .contact button:hover {
-  background: #c2185b;
+  background: var(--primary-dark);
 }
 
 footer {
   text-align: center;
-  padding: 20px;
-  background: #333;
+  padding: 28px 20px;
+  background: #222;
   color: white;
+  font-weight: 400;
+}
+
+footer p {
+  margin: 0;
+  font-size: 0.95rem;
 }
 
 footer .socials {
-  margin-top: 10px;
+  margin-top: 12px;
 }
 
 footer .socials a {
   color: #fff;
   margin: 0 10px;
   text-decoration: none;
+  font-weight: 500;
+  font-size: 0.95rem;
 }
 
 footer .socials a:hover {
@@ -186,7 +323,14 @@ footer .socials a:hover {
 }
 
 @media (max-width: 768px) {
+  .header {
+    padding: 16px 20px;
+  }
   .header nav a {
-    display: none;
+    margin-left: 12px;
+    font-size: 0.9rem;
+  }
+  .hero h2 {
+    font-size: 2rem;
   }
 }

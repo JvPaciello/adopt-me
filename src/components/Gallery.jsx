@@ -12,7 +12,7 @@ export default function Gallery() {
       <h3>Cães para Adoção</h3>
       <div className="cards">
         {dogs.map((dog, index) => (
-          <DogCard key={index} dog={dog} />
+          <DogCard key={index} dog={dog} index={index} />
         ))}
       </div>
     </section>

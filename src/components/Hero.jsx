@@ -1,36 +1,48 @@
-// eslint-disable-next-line no-unused-vars
-import { motion } from "framer-motion";
+import { useEffect, useRef } from 'react';
+import gsap from 'gsap';
 
 export default function Hero() {
+  const heroRef = useRef(null);
+  const ctaRef = useRef(null);
+
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      const tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
+      tl.from('.hero h2', { y: -50, opacity: 0, duration: 0.9 })
+        .from('.hero p', { y: 30, opacity: 0, duration: 0.8 }, '-=0.5')
+        .from('.hero .cta', { scale: 0.8, opacity: 0, duration: 0.7, ease: 'back.out(1.7)' }, '-=0.4');
+    }, heroRef);
+    return () => ctx.revert();
+  }, []);
+
+  const handleEnter = () => {
+    gsap.to(ctaRef.current, { scale: 1.08, duration: 0.25, ease: 'power2.out' });
+  };
+  const handleLeave = () => {
+    gsap.to(ctaRef.current, { scale: 1, duration: 0.25, ease: 'power2.out' });
+  };
+  const handleDown = () => {
+    gsap.to(ctaRef.current, { scale: 0.95, duration: 0.15 });
+  };
+  const handleUp = () => {
+    gsap.to(ctaRef.current, { scale: 1.08, duration: 0.2 });
+  };
+
   return (
-    <section id="inicio" className="hero">
-      <motion.h2
-        initial={{ opacity: 0, y: -50 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
-      >
-        Adote um amigo de quatro patas
-      </motion.h2>
-
-      <motion.p
-        initial={{ opacity: 0, y: 50 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, delay: 0.3 }}
-      >
-        Transforme uma vida. Encontre seu novo melhor amigo hoje!
-      </motion.p>
-
-      <motion.a
+    <section id="inicio" className="hero" ref={heroRef}>
+      <h2>Adote um amigo de quatro patas</h2>
+      <p>Transforme uma vida. Encontre seu novo melhor amigo hoje!</p>
+      <a
+        ref={ctaRef}
         href="#adotar"
         className="cta"
-        whileHover={{ scale: 1.1 }}
-        whileTap={{ scale: 0.95 }}
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.8, delay: 0.6 }}
+        onMouseEnter={handleEnter}
+        onMouseLeave={handleLeave}
+        onMouseDown={handleDown}
+        onMouseUp={handleUp}
       >
         Ver cães disponíveis
-      </motion.a>
+      </a>
     </section>
   );
 }
