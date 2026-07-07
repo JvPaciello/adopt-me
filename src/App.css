@@ -405,6 +405,59 @@ span {
   margin: 0;
 }
 
+.testimonials {
+  padding: 80px 20px;
+  text-align: center;
+  background: var(--bg-pink-soft);
+}
+
+.testimonials h3 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 40px;
+  letter-spacing: -0.5px;
+}
+
+.testimonial-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 24px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.testimonial-card {
+  background: white;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 28px 22px;
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.testimonial-img {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 14px;
+}
+
+.testimonial-card p {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin-bottom: 14px;
+}
+
+.testimonial-card strong {
+  font-size: 0.95rem;
+  color: var(--primary);
+}
+
 .contact {
   padding: 80px 20px;
   background: var(--bg-pink);
