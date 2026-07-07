@@ -513,6 +513,35 @@ span {
   margin: 0;
 }
 
+.donation-cta {
+  background: var(--primary);
+  color: white;
+  text-align: center;
+  padding: 60px 20px;
+}
+
+.donation-cta h3 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.donation-cta p {
+  max-width: 500px;
+  margin: 0 auto 24px;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.donation-cta .cta {
+  display: inline-block;
+  background: white;
+  color: var(--primary);
+  padding: 14px 34px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: 600;
+}
+
 .contact {
   padding: 80px 20px;
   background: var(--bg-pink);

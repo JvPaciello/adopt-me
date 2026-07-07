@@ -7,6 +7,7 @@ import Gallery from './components/Gallery';
 import Steps from './components/Steps';
 import Testimonials from './components/Testimonials';
 import Faq from './components/Faq';
+import DonationCTA from './components/DonationCTA';
 import ContactForm from './components/ContactForm';
 import Footer from './components/Footer';
 import { DogsProvider } from './context/DogsContext';
@@ -24,6 +25,7 @@ export default function App() {
         <Steps />
         <Testimonials />
         <Faq />
+        <DonationCTA />
         <ContactForm />
         <Footer />
 
