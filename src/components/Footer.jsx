@@ -49,7 +49,7 @@ export default function Footer() {
         </div>
         <div className="footer-col">
           <h5>Endereço</h5>
-          <p>Rua dos Rescatados, 123</p>
+          <p>Rua dos Resgatados, 123</p>
           <p>São Paulo - SP</p>
         </div>
       </div>

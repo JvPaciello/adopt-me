@@ -8,17 +8,17 @@ const testimonials = [
   {
     name: 'Carla Mendes',
     quote: 'Adotamos a Luna há 6 meses e ela transformou nossa casa. O processo foi todo acompanhado com muito cuidado.',
-    img: 'https://images.unsplash.com/photo-1552053831-71594a27632d?auto=format&fit=crop&w=200&q=80',
+    img: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=200&q=80',
   },
   {
     name: 'Rafael Souza',
     quote: 'A equipe foi super atenciosa em cada etapa. O Zeus se adaptou rapidinho e hoje é parte da família.',
-    img: 'https://images.unsplash.com/photo-1601758228041-f3b2795255f1?auto=format&fit=crop&w=200&q=80',
+    img: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=200&q=80',
   },
   {
     name: 'Patrícia Lima',
     quote: 'Nunca imaginei que adotar seria tão simples e transparente. Recomendo pra qualquer pessoa que queira dar um lar a um cão.',
-    img: 'https://images.unsplash.com/photo-1547407139-3c921a66005c?auto=format&fit=crop&w=200&q=80',
+    img: 'https://images.unsplash.com/photo-1531123897727-8f129e1688ce?auto=format&fit=crop&w=200&q=80',
   },
 ];
 
