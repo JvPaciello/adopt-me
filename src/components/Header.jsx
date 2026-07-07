@@ -1,8 +1,10 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import gsap from 'gsap';
+import { FiMenu, FiX } from 'react-icons/fi';
 
 export default function Header() {
   const headerRef = useRef(null);
+  const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -33,19 +35,29 @@ export default function Header() {
     });
   };
 
+  const navItems = [
+    { href: '#inicio', label: 'Início' },
+    { href: '#sobre', label: 'Sobre' },
+    { href: '#adotar', label: 'Adotar' },
+    { href: '#contato', label: 'Contato' },
+  ];
+
   return (
     <header className="header" ref={headerRef}>
       <h1>Adote com Amor</h1>
-      <nav>
-        {[
-          { href: '#inicio', label: 'Início' },
-          { href: '#sobre', label: 'Sobre' },
-          { href: '#adotar', label: 'Adotar' },
-          { href: '#contato', label: 'Contato' },
-        ].map((item) => (
+      <button
+        className="menu-toggle"
+        aria-label={isOpen ? 'Fechar menu' : 'Abrir menu'}
+        onClick={() => setIsOpen((v) => !v)}
+      >
+        {isOpen ? <FiX size={26} /> : <FiMenu size={26} />}
+      </button>
+      <nav className={isOpen ? 'nav-open' : ''}>
+        {navItems.map((item) => (
           <a
             key={item.href}
             href={item.href}
+            onClick={() => setIsOpen(false)}
             onMouseEnter={(e) => handleHover(e, true)}
             onMouseLeave={(e) => handleHover(e, false)}
           >
