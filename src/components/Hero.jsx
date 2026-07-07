@@ -30,19 +30,27 @@ export default function Hero() {
 
   return (
     <section id="inicio" className="hero" ref={heroRef}>
-      <h2>Adote um amigo de quatro patas</h2>
-      <p>Transforme uma vida. Encontre seu novo melhor amigo hoje!</p>
-      <a
-        ref={ctaRef}
-        href="#adotar"
-        className="cta"
-        onMouseEnter={handleEnter}
-        onMouseLeave={handleLeave}
-        onMouseDown={handleDown}
-        onMouseUp={handleUp}
-      >
-        Ver cães disponíveis
-      </a>
+      <div className="hero-overlay" />
+      <div className="hero-content">
+        <h2>Adote um amigo de quatro patas</h2>
+        <p>Transforme uma vida. Encontre seu novo melhor amigo hoje!</p>
+        <div className="hero-ctas">
+          <a
+            ref={ctaRef}
+            href="#adotar"
+            className="cta"
+            onMouseEnter={handleEnter}
+            onMouseLeave={handleLeave}
+            onMouseDown={handleDown}
+            onMouseUp={handleUp}
+          >
+            Ver cães disponíveis
+          </a>
+          <a href="#sobre" className="cta cta-secondary">
+            Como funciona
+          </a>
+        </div>
+      </div>
     </section>
   );
 }

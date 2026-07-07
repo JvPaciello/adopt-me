@@ -1,7 +1,7 @@
 :root {
   --primary: #e91e63;
   --primary-dark: #c2185b;
-  --bg: #fafafa;
+  --bg: #faf7f2;
   --bg-pink: #ffe4ec;
   --bg-pink-soft: #fce4ec;
   --text: #333;
@@ -88,10 +88,29 @@ span {
 }
 
 .hero {
-  background: var(--bg-pink);
+  position: relative;
   text-align: center;
-  padding: 100px 20px;
+  padding: 160px 20px;
   overflow: hidden;
+  background-image: url('https://images.unsplash.com/photo-1548199973-03cce0bbc87b?auto=format&fit=crop&w=1600&q=80');
+  background-size: cover;
+  background-position: center;
+  min-height: 520px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.55) 0%, rgba(0, 0, 0, 0.35) 60%, rgba(0, 0, 0, 0.6) 100%);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  color: white;
 }
 
 .hero h2 {
@@ -99,18 +118,26 @@ span {
   font-weight: 800;
   margin-bottom: 14px;
   letter-spacing: -1px;
+  color: white;
 }
 
 .hero p {
   font-size: 1.15rem;
   font-weight: 400;
-  color: var(--text-muted);
+  color: rgba(255, 255, 255, 0.9);
   margin: 0 auto;
   max-width: 600px;
 }
 
-.hero .cta {
+.hero-ctas {
   margin-top: 28px;
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.hero .cta {
   display: inline-block;
   background: var(--primary);
   color: white;
@@ -119,8 +146,14 @@ span {
   text-decoration: none;
   font-weight: 600;
   font-size: 1rem;
-  box-shadow: 0 6px 18px rgba(233, 30, 99, 0.3);
+  box-shadow: 0 6px 18px rgba(233, 30, 99, 0.4);
   cursor: pointer;
+}
+
+.hero .cta-secondary {
+  background: transparent;
+  border: 2px solid white;
+  box-shadow: none;
 }
 
 .gallery {
