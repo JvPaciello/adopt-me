@@ -42,7 +42,7 @@ export default function Steps() {
   };
 
   return (
-    <section id="sobre" className="steps" ref={sectionRef}>
+    <section className="steps" ref={sectionRef}>
       <h3>Como Funciona?</h3>
       <div className="step-list">
         {steps.map((step, index) => (
