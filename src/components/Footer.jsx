@@ -1,6 +1,7 @@
 import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { FiInstagram, FiFacebook } from 'react-icons/fi';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -29,10 +30,35 @@ export default function Footer() {
 
   return (
     <footer ref={footerRef}>
-      <p>&copy; {new Date().getFullYear()} Adote com Amor</p>
-      <div className="socials">
-        <a href="#" onMouseEnter={handleEnter} onMouseLeave={handleLeave}>Instagram</a>
-        <a href="#" onMouseEnter={handleEnter} onMouseLeave={handleLeave}>Facebook</a>
+      <div className="footer-columns">
+        <div className="footer-col">
+          <h4>Adote com Amor</h4>
+          <p>Conectando cães resgatados a famílias que querem transformar uma vida.</p>
+        </div>
+        <div className="footer-col">
+          <h5>Links rápidos</h5>
+          <a href="#inicio" onMouseEnter={handleEnter} onMouseLeave={handleLeave}>Início</a>
+          <a href="#sobre" onMouseEnter={handleEnter} onMouseLeave={handleLeave}>Sobre</a>
+          <a href="#adotar" onMouseEnter={handleEnter} onMouseLeave={handleLeave}>Adotar</a>
+          <a href="#contato" onMouseEnter={handleEnter} onMouseLeave={handleLeave}>Contato</a>
+        </div>
+        <div className="footer-col">
+          <h5>Contato</h5>
+          <p>contato@adotecomamor.org</p>
+          <p>(11) 4002-8922</p>
+        </div>
+        <div className="footer-col">
+          <h5>Endereço</h5>
+          <p>Rua dos Rescatados, 123</p>
+          <p>São Paulo - SP</p>
+        </div>
+      </div>
+      <div className="footer-bottom">
+        <p>&copy; {new Date().getFullYear()} Adote com Amor</p>
+        <div className="socials">
+          <a href="#" aria-label="Instagram" onMouseEnter={handleEnter} onMouseLeave={handleLeave}><FiInstagram size={20} /></a>
+          <a href="#" aria-label="Facebook" onMouseEnter={handleEnter} onMouseLeave={handleLeave}><FiFacebook size={20} /></a>
+        </div>
       </div>
     </footer>
   );
